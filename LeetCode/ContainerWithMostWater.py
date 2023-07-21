@@ -9,21 +9,23 @@
 # Input: [1,8,6,2,5,4,8,3,7]
 # Output: 49
 
-class Solution:
-    def maxArea(self, height):
-        left, right, ret = 0, len(height) - 1, 0
 
-        while left < right:
-            ret = max(ret, min(height[left], height[right]) * (right - left))
-            if height[left] < height[right]:
-                left += 1
-            else:
-                right -= 1
-
-        return ret
-
+def maxArea(height):
+    left = 0
+    right = len(height) - 1
+    result = 0
+    
+    while left < right:
+        min_between = min(height[left], height[right])
+        h = right - left
+        area = min_between * h
+        result = max(result, area)
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+    return result
 # Example usage:
 height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
-solution = Solution()
-result = solution.maxArea(height)
+result = maxArea(height)
 print(result)

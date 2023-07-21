@@ -25,26 +25,41 @@
 # print(nums[i]);
 # }
 
-class Solution:
-    def removeDuplicates(self, nums):
-        if len(nums) <= 1:
-            return len(nums)
+# METHOD 1
+# class Solution:
+#     def removeDuplicates(self, nums):
+#         if len(nums) <= 1:
+#             return len(nums)
 
-        slow, fast, n = 0, 1, len(nums)
-        while fast < n:
-            while nums[fast] == nums[fast - 1]:
-                fast += 1
-                if fast >= n:
-                    break
-            if fast < n:
-                slow += 1
-                nums[slow] = nums[fast]
-                fast += 1
+#         slow, fast, n = 0, 1, len(nums)
+#         while fast < n:
+#             while nums[fast] == nums[fast - 1]:
+#                 fast += 1
+#                 if fast >= n:
+#                     break
+#             if fast < n:
+#                 slow += 1
+#                 nums[slow] = nums[fast]
+#                 fast += 1
 
-        return slow + 1
+#         return slow + 1
 
-# Example usage:
-nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-solution = Solution()
-result = solution.removeDuplicates(nums)
-print(result)
+
+#METHOD 2
+# def removeDuplicates(input):
+#     length = len(input)
+#     if length == 0:
+#         return []
+
+#     for i in range(length):
+#         for j in range(i+1, length):
+#             if input[i] == input[j]:
+#                 input[j] = None
+#     array =  [num for num in input if num is not None]
+#     array.sort()
+#     return array
+
+# # Example usage:
+# nums = [0, 0, 1, 4, 5, 7, 11, 23, 1, 1, 2, 2, 3, 3, 4]
+# result = removeDuplicates(nums)
+# print(result)

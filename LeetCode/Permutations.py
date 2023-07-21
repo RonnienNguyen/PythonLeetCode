@@ -12,20 +12,20 @@
 # ]
 
 # METHOD 1
-# class Solution:
-#     def permute(self, nums):
-#         def backtrack(start, end):
-#             if start == end:
-#                 result.append(nums[:])
-#                 return
-#             for i in range(start, end):
-#                 nums[start], nums[i] = nums[i], nums[start]
-#                 backtrack(start + 1, end)
-#                 nums[start], nums[i] = nums[i], nums[start]  # Backtrack
+class Solution:
+    def permute(self, nums):
+        def backtrack(start, end):
+            if start == end:
+                result.append(nums[:])
+                return
+            for i in range(start, end):
+                nums[start], nums[i] = nums[i], nums[start]
+                backtrack(start + 1, end)
+                nums[start], nums[i] = nums[i], nums[start]  # Backtrack
 
-#         result = []
-#         backtrack(0, len(nums))
-#         return result
+        result = []
+        backtrack(0, len(nums))
+        return result
 
 # # Example usage:
 # nums = [1, 2, 3]
@@ -36,25 +36,28 @@
 
 # METHOD 2
 
-class Solution:
-    def permute(self, nums):
-        def backtrack(chosen, permutation):
-            if len(permutation) == len(nums):
-                result.append(permutation[:])
-                return
+# class Solution:
+#     def permute(self, nums):
+#         def backtrack(chosen, permutation):
+#             if len(permutation) == len(nums):
+#                 result.append(permutation[:])
+#                 return
             
-            for i in range(len(nums)):
-                if not chosen[i]:
-                    chosen[i] = True
-                    permutation.append(nums[i])
-                    backtrack(chosen, permutation)
-                    chosen[i] = False
-                    permutation.pop()
+#             for i in range(len(nums)):
+#                 if not chosen[i]:
+#                     chosen[i] = True
+#                     permutation.append(nums[i])
+#                     backtrack(chosen, permutation)
+#                     chosen[i] = False
+#                     permutation.pop()
 
-        result = []
-        chosen = [False] * len(nums)
-        backtrack(chosen, [])
-        return result
+#         result = []
+#         chosen = [False] * len(nums)
+#         backtrack(chosen, [])
+#         return result
+
+
+# METHOD 3
 
 # Example usage:
 nums = [1, 2, 3]
