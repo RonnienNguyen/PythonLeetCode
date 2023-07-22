@@ -9,20 +9,28 @@
 # Input: [7,8,9,11,12] Output: 1 Note: 
  
 # Your algorithm should run in O(n) time and uses constant extra space. 
-def firstMissingPositive(nums):
-    seen = set()
+# METHOD 1
+# def firstMissingPositive(nums):
+#     seen = set()
     
-    for i in nums:
-        if i > 0:
-            seen.add(i)
+#     for i in nums:
+#         if i > 0:
+#             seen.add(i)
     
-    i, n = 1, len(nums)
-    while i <= n:
-        if i not in seen:
-            return i
-        i += 1
-    return i
+#     i, n = 1, len(nums)
+#     while i <= n:
+#         if i not in seen:
+#             return i
+#         i += 1
+#     return i
 # Your algorithm should run in O(n) time and uses constant extra space. 
+
+#METHOD 2, O(n^2)
+def firstMissingPositive(nums):
+    nums.sort()
+    return nums[0]
+            
+
 # Example usage:
 nums = [3, 4, -1, 1]
 numss = [7,8,9,11,12] 

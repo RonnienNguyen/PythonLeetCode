@@ -46,18 +46,18 @@
 
 #METHOD 2
 
-def searchRange(input, value):
-    array = []
-    resultNull = [-1, -1]
-    length = len(input)
-    for i in range(length):
-        if (input[i] == value):
-            array.append(i)
-    resultLength = len(array)
-    if resultLength != 0:
-        return array
-    else:
-        return resultNull
+# def searchRange(input, value):
+#     array = []
+#     resultNull = [-1, -1]
+#     length = len(input)
+#     for i in range(length):
+#         if (input[i] == value):
+#             array.append(i)
+#     resultLength = len(array)
+#     if resultLength != 0:
+#         return array
+#     else:
+#         return resultNull
 
 ArrayInit = [5, 7, 7, 8, 8, 10]
 target = 5
